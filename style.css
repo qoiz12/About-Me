@@ -1,0 +1,241 @@
+@font-face {
+  font-family: 'DIN 2014';
+  src: url('fonts/DIN2014-Demi.woff2') format('woff2'),
+       url('fonts/DIN2014-Demi.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: local('Inter'), local('Inter'),
+      url('fonts/Inter-Regular.woff2') format('woff2'),
+      url('fonts/Inter-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --yellow: rgba(255, 217, 113, 0.99);
+
+  --text: var(--white);
+
+  --opacity75: rgba(255, 255, 255, 0.75);
+  --opacity50: rgba(255, 255, 255, 0.5);
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+html, body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+  color: var(--text);
+  background: url('images/background.png') no-repeat top center scroll;
+  background-size: cover;
+  background-color: #141416;
+}
+
+@media screen and (max-width: 740px) {
+  html, body {
+    background-size: contain;
+  }
+}
+
+h1, h2 {
+  font-family: 'DIN 2014';
+  font-weight: 500;
+  margin: 0 0 0.3em;
+}
+
+h2 {
+  color: var(--yellow);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--text);
+}
+
+a:not(.button-icon):hover {
+  text-decoration: underline;
+}
+
+img::selection {
+  background: inherit;
+}
+
+p {
+  margin: 0 0 20px;
+  line-height: 1.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 5rem 30px 20px;
+}
+
+@media screen and (max-width: 740px) {
+  main {
+    padding-top: 4rem;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+
+section#profile .avatar {
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+section#profile .avatar img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+}
+
+section#projects .items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+section#projects .items .item {
+  border-radius: 20px;
+  background: rgba(1, 1, 3, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+section#projects .items .item:hover {
+  background: rgba(250, 250, 255, 0.01);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+section#projects .items .item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 30px;
+}
+
+section#projects .items .item a.disabled {
+  cursor: default;
+}
+
+section#projects .items .item img {
+  border-radius: 15px;
+}
+
+section#projects .items .item h3 {
+  font-family: 'DIN 2014', sans-serif;
+  font-weight: 500;
+  margin: 0.8em 0 0.5em;
+}
+
+section#projects .items .item p {
+  font-size: 13px;
+  margin-bottom: 0.8em;
+}
+
+section#projects .items .item span {
+  font-family: 'DIN 2014', sans-serif;
+  letter-spacing: 0.02em;
+  font-size: 13px;
+}
+
+section#projects .items .item span.dep {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+section#projects a:hover {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 740px) {
+  section#projects .items {
+    grid-template-columns: 1fr;
+  }
+
+  section#projects .items .item {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  section#projects .items .item p {
+    padding: 0 40px;
+  }
+}
+
+.links { user-select: none; }
+
+.button-icon svg {
+  height: 24px;
+  width: 24px;
+}
+
+.button-icon svg path {
+  stroke: var(--text);
+}
+
+.button-icon#github:hover svg path {
+  stroke: #999;
+}
+
+.button-icon#twitter:hover svg path {
+  stroke: #5FA8FF;
+}
+
+.button-icon:not(:last-child) {
+  margin-right: 10px;
+}
+
+a.link::after {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 10px;
+  height: 10px;
+  content: " ";
+  background-repeat: no-repeat;
+  margin-right: 8px;
+  left: 5px;
+  top: -1px;
+}
+
+a.link {
+  user-select: none;
+}
+
+a.link.disabled {
+  color: var(--opacity50) !important;
+  cursor: default;
+}
+
+a.link.hyperlink::after {
+  background-image: url(images/hyperlink.svg);
+  background-position-y: 0.5px;
+}
